@@ -1,0 +1,91 @@
+README:
+
+sqli.py
+
+  The utility sqli.py provides a simple quick interactive inteface to an SQL
+  database. What it provides is:
+
+  1 - Simple navigation of the databases and tables defined. Once you navigate
+      to a data base and table the following operations do not require entry of
+      the database and table name.
+
+  2 - Simple interface to insert a record in any database table. Using this
+      interface the user is prompted for each field.
+
+  3 - Simple interface to load a csv file into a database table.
+
+  4 - Basic queies may also be performed.
+
+Fields - Custom Handling
+
+  Custom field handlers may be registered for any or all fields. A custom field
+  handler is called when an insert or load is performed on the field. The handler
+  recieves one argument, the value being inserted ot loaded. It then may perform
+  any checks on or modifications of the value. The possibly updated value is
+  returned.
+
+  An example handler is provided in: customFields.py 
+
+Usage Example:
+
+To start supply a userid and hostname for you SQL database.         
+
+$ ./sqli.py allen localhost
+2.0
+Password: 
+
+These databases are available:
+
+(0) information_schema
+(1) NookBooks
+(2) ap
+(3) ex
+(4) menagerie
+(5) mysql
+(6) om
+(e) <Exit>
+
+Select database (0-6): 2
+Database selected: ap
+
+These tables are available in ap: 
+
+(0) general_ledger_accounts
+(1) invoice_archive
+(2) invoice_line_items
+(3) invoices
+(4) terms
+(5) vendor_contacts
+(6) vendors
+(b) <Back>
+
+Select table (0-6): 3
+Table selected: invoices
+Table 'invoices' has this record structure:
+
+row: ('invoice_id', 'int(11)', 'NO', 'PRI', None, 'auto_increment')
+row: ('vendor_id', 'int(11)', 'NO', 'MUL', None, '')
+row: ('invoice_number', 'varchar(50)', 'NO', '', None, '')
+row: ('invoice_date', 'date', 'NO', 'MUL', None, '')
+row: ('invoice_total', 'decimal(9,2)', 'NO', '', None, '')
+row: ('payment_total', 'decimal(9,2)', 'NO', '', '0.00', '')
+row: ('credit_total', 'decimal(9,2)', 'NO', '', '0.00', '')
+row: ('terms_id', 'int(11)', 'NO', 'MUL', None, '')
+row: ('invoice_due_date', 'date', 'NO', '', None, '')
+row: ('payment_date', 'date', 'YES', '', None, '')
+
+Operation: i
+ [int(11)] 	invoice_id: 123
+ [int(11)] 	vendor_id: 456
+ [varchar(50)] 	invoice_number: 1234
+ [date] 	invoice_date: 2016-09-19
+ [decimal(9,2)] 	invoice_total: 22.79
+ [decimal(9,2)] 	payment_total: 22.79
+ [decimal(9,2)] 	credit_total: 10.00
+ [int(11)] 	terms_id: 30
+ [date] 	invoice_due_date: 2016-09-19
+ [date] 	payment_date: 2016-09-19
+SQL to submit: insert into invoices(invoice_id,vendor_id,invoice_number,invoice_date,invoice_total,payment_total,credit_total,terms_id,invoice_due_date,payment_date) values(123,456,"1234","2016-09-19",22.79,22.79,10.0,30,"2016-09-19","2016-09-19")
+insert (y/n)? : 
+
+
