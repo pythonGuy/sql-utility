@@ -31,8 +31,8 @@ Usage Example:
 To start supply a userid and hostname for you SQL database.         
 
 $ ./sqli.py allen localhost
-2.0
-Password: 
+2.1
+Password:
 
 These databases are available:
 
@@ -74,7 +74,7 @@ row: ('terms_id', 'int(11)', 'NO', 'MUL', None, '')
 row: ('invoice_due_date', 'date', 'NO', '', None, '')
 row: ('payment_date', 'date', 'YES', '', None, '')
 
-Operation: i
+Operation (i/l/q/b/h): 
  [int(11)] 	invoice_id: 123
  [int(11)] 	vendor_id: 456
  [varchar(50)] 	invoice_number: 1234
