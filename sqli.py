@@ -267,7 +267,7 @@ if __name__ == '__main__':
     # Connect to database
     db = MySQLdb.connect(hostName,userName,password)
 
-    from customField import *
+    from customFields import *
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
