@@ -31,7 +31,7 @@ Usage Example:
 To start supply a userid and hostname for you SQL database.         
 
 $ ./sqli.py allen localhost
-2.1
+2.2
 Password:
 
 These databases are available:
