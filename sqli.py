@@ -160,9 +160,9 @@ def load_table(table):
                     sv = int(stripItem)
                 else:
                     if p in customField.keys():
-                        sv = customField[p](sv)
+                        sv = customField[p](stripItem)
                     else:
-                        sv = str(sv)
+                        sv = str(stripItem)
 
             v.append(sv)
         sql = "insert into "+table+" values("
@@ -171,6 +171,11 @@ def load_table(table):
             sql += ','
         sql = sql[:-1]
         sql += ")"
+        print "'%s'" % sql
+        a = raw_input("Okay? ")
+        if a != 'y':
+            print "Returning"
+            return
 
         cursor.execute(sql)
         results = cursor.fetchall()
