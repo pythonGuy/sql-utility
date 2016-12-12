@@ -161,6 +161,8 @@ def load_table(table):
                 else:
                     if p in customField.keys():
                         sv = customField[p](stripItem)
+                    if table in customField.keys() and p in customField[table].keys():
+                        sv = customField[table][p](stripItem)
                     else:
                         sv = str(stripItem)
 
