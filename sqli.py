@@ -217,6 +217,8 @@ def insert_table(table):
             elif "char" in tp:
                 if p in customField.keys():
                     nv = customField[p](nv)
+                if table in customField.keys() and p in customField[table].keys():
+                    nv = customField[table][p](nv)
                 else:
                     nv = str(nv)
 
