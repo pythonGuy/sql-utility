@@ -262,7 +262,7 @@ def insert_table(table):
         print line
 
 if __name__ == '__main__':
-    ver = "2.1"
+    ver = "3.0"
     print ver
 
     if len(sys.argv) != 3:
